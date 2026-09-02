@@ -6,21 +6,27 @@ import Stack from '@mui/material/Stack';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
+import { useState } from "react";
 import RegisterForm from "./components/registerform";
+import GadgetTable from "./components/table";
 
 function App() {
+  const [gadgets, setGadgets] = useState([]);
+
   const handleFormSubmit = (data) => {
-    console.log("Submitted gadget:", data);
-    
+    setGadgets((prev) => [...prev, data]);
   };
 
   return (
-    <div>
+    <Box sx={{ p: 3 }}>
       <Typography variant="h4">
         Gadget Registration
       </Typography>
       <RegisterForm onSubmit={handleFormSubmit} />
-    </div>
+      
+      
+      <GadgetTable data={gadgets} />
+    </Box>
   );
 }
 

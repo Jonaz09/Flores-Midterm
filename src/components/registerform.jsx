@@ -10,7 +10,7 @@ export default function RegisterForm({ onSubmit }) {
     brandName: "",
     userRole: "",
   });
-  const [errors] = useState({});
+  const [errors, setErrors] = useState({});
 
   const validate = () => {
     let newErrors = {};
@@ -21,7 +21,8 @@ export default function RegisterForm({ onSubmit }) {
       newErrors.healthRating = "1–100 only";
     if (!formData.brandName) newErrors.brandName = "Required";
     if (!formData.userRole) newErrors.userRole = "Pick a role";
-    
+
+    setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
@@ -37,33 +38,35 @@ export default function RegisterForm({ onSubmit }) {
         brandName: "",
         userRole: "",
       });
-      
+      setErrors({});
     }
   };
 
   return (
     <Box sx={{ p: 2, maxWidth: 400, mx: "auto" }}>
-      <Typography variant="h5">
-        Gadget Registration
-      </Typography>
       <form onSubmit={handleSubmit}>
         <TextField
           label="Gadget Name"
           value={formData.gadgetName}
           onChange={(e) => setFormData({ ...formData, gadgetName: e.target.value })}
-         
+          error={!!errors.gadgetName}
+          helperText={errors.gadgetName}
+          
         />
         <TextField
           label="Category"
           value={formData.category}
           onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-          
+          error={!!errors.category}
           helperText={errors.category}
+          
         />
         <TextField
           label="Manufacturer"
           value={formData.manufacturer}
           onChange={(e) => setFormData({ ...formData, manufacturer: e.target.value })}
+          error={!!errors.manufacturer}
+          helperText={errors.manufacturer}
           
         />
         <TextField
@@ -71,24 +74,29 @@ export default function RegisterForm({ onSubmit }) {
           type="number"
           value={formData.healthRating}
           onChange={(e) => setFormData({ ...formData, healthRating: Number(e.target.value) })}
+          error={!!errors.healthRating}
+          helperText={errors.healthRating}
           
         />
         <TextField
           label="Brand Name"
           value={formData.brandName}
           onChange={(e) => setFormData({ ...formData, brandName: e.target.value })}
-        
+          error={!!errors.brandName}
+          helperText={errors.brandName}
+          
         />
         <RadioGroup
           value={formData.userRole}
           onChange={(e) => setFormData({ ...formData, userRole: e.target.value })}
+          row
         >
           <FormControlLabel value="Engineer" control={<Radio />} label="Engineer" />
           <FormControlLabel value="Tester" control={<Radio />} label="Tester" />
         </RadioGroup>
         {errors.userRole && <Typography color="error">{errors.userRole}</Typography>}
 
-        <Button type="submit" variant="contained" sx={{ mt: 2 }}>
+        <Button type="submit" variant="contained">
           Submit
         </Button>
       </form>
