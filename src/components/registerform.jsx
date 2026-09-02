@@ -7,7 +7,7 @@ export default function RegisterForm({ onSubmit }) {
     category: "",
     manufacturer: "",
     healthRating: "",
-    storeName: "",   // ✅ storeName instead of brandName
+    storeName: "",   
     userRole: "",
   });
   const [errors, setErrors] = useState({});
@@ -19,7 +19,7 @@ export default function RegisterForm({ onSubmit }) {
     if (!formData.manufacturer) newErrors.manufacturer = "Required";
     if (!formData.healthRating || formData.healthRating < 1 || formData.healthRating > 100)
       newErrors.healthRating = "1–100 only";
-    if (!formData.storeName) newErrors.storeName = "Required";   // ✅ updated
+    if (!formData.storeName) newErrors.storeName = "Required";   
     if (!formData.userRole) newErrors.userRole = "Pick a role";
 
     setErrors(newErrors);
@@ -35,7 +35,7 @@ export default function RegisterForm({ onSubmit }) {
         category: "",
         manufacturer: "",
         healthRating: "",
-        storeName: "",   // ✅ reset storeName
+        storeName: "",   
         userRole: "",
       });
       setErrors({});
@@ -43,7 +43,7 @@ export default function RegisterForm({ onSubmit }) {
   };
 
   return (
-    <Box sx={{ p: 2, maxWidth: 400, mx: "auto" }}>
+    <Box sx={{ p: 2, maxWidth: 400 }}>
       <form onSubmit={handleSubmit}>
         <TextField
           label="Gadget Name"
@@ -51,8 +51,7 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, gadgetName: e.target.value })}
           error={!!errors.gadgetName}
           helperText={errors.gadgetName}
-          fullWidth
-          margin="normal"
+          
         />
         <TextField
           label="Category"
@@ -60,8 +59,7 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, category: e.target.value })}
           error={!!errors.category}
           helperText={errors.category}
-          fullWidth
-          margin="normal"
+          
         />
         <TextField
           label="Manufacturer"
@@ -69,8 +67,7 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, manufacturer: e.target.value })}
           error={!!errors.manufacturer}
           helperText={errors.manufacturer}
-          fullWidth
-          margin="normal"
+         
         />
         <TextField
           label="Health Rating (1-100)"
@@ -79,8 +76,7 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, healthRating: Number(e.target.value) })}
           error={!!errors.healthRating}
           helperText={errors.healthRating}
-          fullWidth
-          margin="normal"
+          
           inputProps={{ min: 1, max: 100 }}
         />
         <TextField
@@ -89,8 +85,7 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, storeName: e.target.value })}
           error={!!errors.storeName}
           helperText={errors.storeName}
-          fullWidth
-          margin="normal"
+          
         />
         <RadioGroup
           value={formData.userRole}
