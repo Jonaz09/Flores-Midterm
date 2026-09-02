@@ -20,7 +20,7 @@ function App() {
 
   return (
     <Box sx={{ p: 3 }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4">
         Gadget Registration
       </Typography>
       <RegisterForm onSubmit={handleFormSubmit} />
