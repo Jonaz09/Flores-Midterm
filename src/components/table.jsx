@@ -7,7 +7,7 @@ import {
 } from "@tanstack/react-table";
 import { Table, TableBody, TableCell, TableHead, TableRow, Button, Box } from "@mui/material";
 
-export default function GadgetTable({ data }) {
+export default function GadgetTable({ data, onRowClick }) {
   const [pageIndex, setPageIndex] = useState(0);
 
   const columns = [
@@ -22,7 +22,7 @@ export default function GadgetTable({ data }) {
   const table = useReactTable({
     data,
     columns,
-    state: { pagination: { pageIndex, pageSize: 5 } }, 
+    state: { pagination: { pageIndex, pageSize: 5 } },
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     onPaginationChange: (updater) => {
@@ -52,7 +52,11 @@ export default function GadgetTable({ data }) {
         </TableHead>
         <TableBody>
           {table.getRowModel().rows.map((row) => (
-            <TableRow key={row.id}>
+            <TableRow
+              key={row.id}
+              onClick={() => onRowClick && onRowClick(row.original)} 
+              style={{ cursor: "pointer" }}
+            >
               {row.getVisibleCells().map((cell) => (
                 <TableCell key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}

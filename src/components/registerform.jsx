@@ -43,7 +43,7 @@ export default function RegisterForm({ onSubmit }) {
   };
 
   return (
-    <Box sx={{ p: 2, maxWidth: 400, mx: "auto" }}>
+    <Box sx={{ p: 2, maxWidth: 400}}>
       <form onSubmit={handleSubmit}>
         <TextField
           label="Gadget Name"
