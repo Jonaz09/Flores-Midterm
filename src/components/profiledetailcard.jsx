@@ -1,6 +1,6 @@
-import { Card, CardContent, Typography, Box,} from "@mui/material";
+import { Card, CardContent, Typography, Box, } from "@mui/material";
 
-export default function ProfileDetailCard({ gadget}) {
+export default function ProfileDetailCard({ gadget }) {
   if (!gadget) {
     return (
       <Box sx={{ mt: 2 }}>

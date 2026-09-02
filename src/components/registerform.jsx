@@ -43,7 +43,7 @@ export default function RegisterForm({ onSubmit }) {
   };
 
   return (
-    <Box sx={{ p: 2, maxWidth: 400}}>
+    <Box sx={{ p: 2, maxWidth: 400 }}>
       <form onSubmit={handleSubmit}>
         <TextField
           label="Gadget Name"
@@ -51,7 +51,7 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, gadgetName: e.target.value })}
           error={!!errors.gadgetName}
           helperText={errors.gadgetName}
-          
+
         />
         <TextField
           label="Category"
@@ -59,7 +59,7 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, category: e.target.value })}
           error={!!errors.category}
           helperText={errors.category}
-          
+
         />
         <TextField
           label="Manufacturer"
@@ -67,7 +67,7 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, manufacturer: e.target.value })}
           error={!!errors.manufacturer}
           helperText={errors.manufacturer}
-          
+
         />
         <TextField
           label="Health Rating (1-100)"
@@ -76,7 +76,7 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, healthRating: Number(e.target.value) })}
           error={!!errors.healthRating}
           helperText={errors.healthRating}
-          
+
         />
         <TextField
           label="Store Name"
@@ -84,7 +84,7 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, storeName: e.target.value })}
           error={!!errors.storeName}
           helperText={errors.storeName}
-          
+
         />
         <RadioGroup
           value={formData.userRole}
