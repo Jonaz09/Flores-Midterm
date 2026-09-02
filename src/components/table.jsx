@@ -15,7 +15,7 @@ export default function GadgetTable({ data, onRowClick }) {
     { header: "Category", accessorKey: "category" },
     { header: "Manufacturer", accessorKey: "manufacturer" },
     { header: "Health Rating", accessorKey: "healthRating" },
-    { header: "Brand Name", accessorKey: "brandName" },
+    { header: "Store Name", accessorKey: "storeName" },
     { header: "User Role", accessorKey: "userRole" },
   ];
 
