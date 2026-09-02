@@ -6,27 +6,22 @@ import Stack from '@mui/material/Stack';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
+import RegisterForm from "./components/registerform";
+
 function App() {
-  return (
-  <div>
-   <h1>hello</h1>
-   <Button variant="contained">
-    My first button
-   </Button>
-
-   <Button variant="outlined">
-    My first button
-   </Button>
-
-   <Button variant="text">
-    My first button
-   </Button>
+  const handleFormSubmit = (data) => {
+    console.log("Submitted gadget:", data);
     
-  </div>
+  };
+
+  return (
+    <div>
+      <Typography variant="h4">
+        Gadget Registration
+      </Typography>
+      <RegisterForm onSubmit={handleFormSubmit} />
+    </div>
   );
 }
 
 export default App;
-
-
-
