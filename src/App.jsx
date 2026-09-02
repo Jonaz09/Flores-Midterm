@@ -12,12 +12,6 @@ function App() {
     setGadgets((prev) => [...prev, data]);
   };
 
-  
-  
-    setGadgets((prev) => prev.filter((g) => g !== gadgetToDelete));
-    setSelectedGadget(null);
-  };
-
   return (
     <Box sx={{ p: 3 }}>
       <Typography variant="h4">
@@ -28,6 +22,6 @@ function App() {
       <ProfileDetailCard gadget={selectedGadget} />
     </Box>
   );
-
+}
 
 export default App;

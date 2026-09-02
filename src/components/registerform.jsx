@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TextField, Button, RadioGroup, FormControlLabel, Radio, Typography, Box } from "@mui/material";
+import { TextField, Button, RadioGroup, FormControlLabel, Radio, Box } from "@mui/material";
 
 export default function RegisterForm({ onSubmit }) {
   const [formData, setFormData] = useState({
@@ -7,7 +7,7 @@ export default function RegisterForm({ onSubmit }) {
     category: "",
     manufacturer: "",
     healthRating: "",
-    storeName: "",
+    storeName: "",   // ✅ storeName instead of brandName
     userRole: "",
   });
   const [errors, setErrors] = useState({});
@@ -19,7 +19,7 @@ export default function RegisterForm({ onSubmit }) {
     if (!formData.manufacturer) newErrors.manufacturer = "Required";
     if (!formData.healthRating || formData.healthRating < 1 || formData.healthRating > 100)
       newErrors.healthRating = "1–100 only";
-    if (!formData.storeName) newErrors.storeName = "Required";
+    if (!formData.storeName) newErrors.storeName = "Required";   // ✅ updated
     if (!formData.userRole) newErrors.userRole = "Pick a role";
 
     setErrors(newErrors);
@@ -35,7 +35,7 @@ export default function RegisterForm({ onSubmit }) {
         category: "",
         manufacturer: "",
         healthRating: "",
-        storeName: "",
+        storeName: "",   // ✅ reset storeName
         userRole: "",
       });
       setErrors({});
@@ -43,7 +43,7 @@ export default function RegisterForm({ onSubmit }) {
   };
 
   return (
-    <Box sx={{ p: 2, maxWidth: 400}}>
+    <Box sx={{ p: 2, maxWidth: 400, mx: "auto" }}>
       <form onSubmit={handleSubmit}>
         <TextField
           label="Gadget Name"
@@ -51,7 +51,8 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, gadgetName: e.target.value })}
           error={!!errors.gadgetName}
           helperText={errors.gadgetName}
-          
+          fullWidth
+          margin="normal"
         />
         <TextField
           label="Category"
@@ -59,7 +60,8 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, category: e.target.value })}
           error={!!errors.category}
           helperText={errors.category}
-          
+          fullWidth
+          margin="normal"
         />
         <TextField
           label="Manufacturer"
@@ -67,7 +69,8 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, manufacturer: e.target.value })}
           error={!!errors.manufacturer}
           helperText={errors.manufacturer}
-          
+          fullWidth
+          margin="normal"
         />
         <TextField
           label="Health Rating (1-100)"
@@ -76,15 +79,18 @@ export default function RegisterForm({ onSubmit }) {
           onChange={(e) => setFormData({ ...formData, healthRating: Number(e.target.value) })}
           error={!!errors.healthRating}
           helperText={errors.healthRating}
-          
+          fullWidth
+          margin="normal"
+          inputProps={{ min: 1, max: 100 }}
         />
         <TextField
-          label="Store Name"
+          label="Store Name"   
           value={formData.storeName}
           onChange={(e) => setFormData({ ...formData, storeName: e.target.value })}
           error={!!errors.storeName}
           helperText={errors.storeName}
-          
+          fullWidth
+          margin="normal"
         />
         <RadioGroup
           value={formData.userRole}
@@ -94,10 +100,8 @@ export default function RegisterForm({ onSubmit }) {
           <FormControlLabel value="Engineer" control={<Radio />} label="Engineer" />
           <FormControlLabel value="Tester" control={<Radio />} label="Tester" />
         </RadioGroup>
-        {errors.userRole && <Typography color="error">{errors.userRole}</Typography>}
-
-        <Button type="submit" variant="contained">
-          Submit
+        <Button type="submit" variant="contained" sx={{ mt: 2 }}>
+          Register Gadget
         </Button>
       </form>
     </Box>

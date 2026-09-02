@@ -15,7 +15,7 @@ export default function GadgetTable({ data, onRowClick }) {
     { header: "Category", accessorKey: "category" },
     { header: "Manufacturer", accessorKey: "manufacturer" },
     { header: "Health Rating", accessorKey: "healthRating" },
-    { header: "Store Name", accessorKey: "storeName" },
+    { header: "Store Name", accessorKey: "storeName" },   
     { header: "User Role", accessorKey: "userRole" },
   ];
 
@@ -54,7 +54,7 @@ export default function GadgetTable({ data, onRowClick }) {
           {table.getRowModel().rows.map((row) => (
             <TableRow
               key={row.id}
-              onClick={() => onRowClick && onRowClick(row.original)} 
+              onClick={() => onRowClick && onRowClick(row.original)}
               style={{ cursor: "pointer" }}
             >
               {row.getVisibleCells().map((cell) => (
@@ -67,8 +67,7 @@ export default function GadgetTable({ data, onRowClick }) {
         </TableBody>
       </Table>
 
-      
-      <Box sx={{ display: "flex", justifyContent: "center"}}>
+      <Box sx={{ display: "flex", justifyContent: "center", mt: 2, gap: 1 }}>
         {Array.from({ length: totalPages }, (_, i) => (
           <Button
             key={i}
