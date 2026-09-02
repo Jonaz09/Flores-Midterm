@@ -7,7 +7,7 @@ export default function RegisterForm({ onSubmit }) {
     category: "",
     manufacturer: "",
     healthRating: "",
-    brandName: "",
+    storeName: "",
     userRole: "",
   });
   const [errors, setErrors] = useState({});
@@ -19,7 +19,7 @@ export default function RegisterForm({ onSubmit }) {
     if (!formData.manufacturer) newErrors.manufacturer = "Required";
     if (!formData.healthRating || formData.healthRating < 1 || formData.healthRating > 100)
       newErrors.healthRating = "1–100 only";
-    if (!formData.brandName) newErrors.brandName = "Required";
+    if (!formData.storeName) newErrors.storeName = "Required";
     if (!formData.userRole) newErrors.userRole = "Pick a role";
 
     setErrors(newErrors);
@@ -35,7 +35,7 @@ export default function RegisterForm({ onSubmit }) {
         category: "",
         manufacturer: "",
         healthRating: "",
-        brandName: "",
+        storeName: "",
         userRole: "",
       });
       setErrors({});
@@ -79,11 +79,11 @@ export default function RegisterForm({ onSubmit }) {
           
         />
         <TextField
-          label="Brand Name"
-          value={formData.brandName}
-          onChange={(e) => setFormData({ ...formData, brandName: e.target.value })}
-          error={!!errors.brandName}
-          helperText={errors.brandName}
+          label="Store Name"
+          value={formData.storeName}
+          onChange={(e) => setFormData({ ...formData, storeName: e.target.value })}
+          error={!!errors.storeName}
+          helperText={errors.storeName}
           
         />
         <RadioGroup
