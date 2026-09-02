@@ -18,7 +18,7 @@ export default function ProfileDetailCard({ gadget}) {
         <Typography>Category: {gadget.category}</Typography>
         <Typography>Manufacturer: {gadget.manufacturer}</Typography>
         <Typography>Health Rating: {gadget.healthRating}</Typography>
-        <Typography>Brand Name: {gadget.brandName}</Typography>
+        <Typography>Store Name: {gadget.brandName}</Typography>
         <Typography>User Role: {gadget.userRole}</Typography>
       </CardContent>
     </Card>
