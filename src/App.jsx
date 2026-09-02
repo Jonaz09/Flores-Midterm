@@ -13,7 +13,7 @@ function App() {
   };
 
   
-  const handleDelete = (gadgetToDelete) => {
+  
     setGadgets((prev) => prev.filter((g) => g !== gadgetToDelete));
     setSelectedGadget(null);
   };
@@ -28,6 +28,6 @@ function App() {
       <ProfileDetailCard gadget={selectedGadget} />
     </Box>
   );
-}
+
 
 export default App;
