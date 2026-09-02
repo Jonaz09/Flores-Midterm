@@ -12,22 +12,22 @@ function App() {
     setGadgets((prev) => [...prev, data]);
   };
 
+  
+  
+    setGadgets((prev) => prev.filter((g) => g !== gadgetToDelete));
+    setSelectedGadget(null);
+  };
 
-
-  setGadgets((prev) => prev.filter((g) => g !== gadgetToDelete));
-  setSelectedGadget(null);
-};
-
-return (
-  <Box sx={{ p: 3 }}>
-    <Typography variant="h4">
-      Gadget Registration
-    </Typography>
-    <RegisterForm onSubmit={handleFormSubmit} />
-    <GadgetTable data={gadgets} onRowClick={setSelectedGadget} />
-    <ProfileDetailCard gadget={selectedGadget} />
-  </Box>
-);
+  return (
+    <Box sx={{ p: 3 }}>
+      <Typography variant="h4">
+        Gadget Registration
+      </Typography>
+      <RegisterForm onSubmit={handleFormSubmit} />
+      <GadgetTable data={gadgets} onRowClick={setSelectedGadget} />
+      <ProfileDetailCard gadget={selectedGadget} />
+    </Box>
+  );
 
 
 export default App;
